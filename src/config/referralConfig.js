@@ -4,11 +4,11 @@
  */
 
 export const REFERRAL_CONFIG = {
-  // Tu enlace de referido personalizado
-  referralLink: "https://kgen.io/register?ref=KGEN_OFICIAL_VIP",
+  // Tu enlace de referido personalizado oficial
+  referralLink: "https://www.kgen.quest/invite/81cdef49",
   
   // Tu código de referido promocional para KGEN
-  referralCode: "KGEN_VIP_2026",
+  referralCode: "81cdef49",
 
   // Código de invitación OBLIGATORIO para Minute
   minuteInviteCode: "5TBCT4ZC",
@@ -17,7 +17,7 @@ export const REFERRAL_CONFIG = {
   appName: "KGEN",
   appBadge: "Guía de Onboarding Oficial",
 
-  // Pasos tutoriales unificados (Mismo patrón: Video superior + Instrucciones inferiores)
+  // Pasos tutoriales unificados
   steps: [
     {
       number: 1,
@@ -32,7 +32,7 @@ export const REFERRAL_CONFIG = {
         "Google Pixel: Modelo Pixel 6 o superior.",
         "Es de suma importancia contar con uno de estos dispositivos para poder ejecutar las tareas de grabación en la app de Minute."
       ],
-      ctaText: "Verificar mi Dispositivo y Continuar",
+      ctaText: "Registrarme en KGEN con Referido",
       badge: "Requisito"
     },
     {
