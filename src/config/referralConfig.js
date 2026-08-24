@@ -90,16 +90,16 @@ export const REFERRAL_CONFIG = {
       youtubeId: "dQw4w9WgXcQ", // Reemplaza con el ID de tu video de YouTube para el Paso 5
       videoTitle: "Tutorial Paso 5: Cómo obtener tu wallet de Polygon (USDT) en Binance y vincularla",
       instructions: [
-        "a) Entra a tu cuenta de Binance (si no tienes una, créala; hay muchos videos en YouTube de cómo hacerlo).",
-        "b) Haz clic en la opción 'Depositar'.",
-        "c) Selecciona 'Depositar activo'.",
-        "d) Selecciona la criptomoneda: USDT.",
-        "e) Selecciona la red: Polygon (POL).",
-        "f) Copia tu dirección de Wallet (es una combinación única de números y letras).",
-        "g) Entra en KGEN (Perfil), busca la opción del formulario 'Billetera Digital (Polygon)', pega tu wallet y guarda los cambios."
+        "Entra a tu cuenta de Binance (si no tienes una, créala; hay muchos videos en YouTube de cómo hacerlo).",
+        "Haz clic en la opción 'Depositar'.",
+        "Selecciona 'Depositar activo'.",
+        "Selecciona la criptomoneda: USDT.",
+        "Selecciona la red: Polygon (POL).",
+        "Copia tu dirección de Wallet (es una combinación única de números y letras).",
+        "Entra en KGEN (Perfil), busca la opción del formulario 'Billetera Digital (Polygon)', pega tu wallet y guarda los cambios."
       ],
       ctaText: "Ir a KGEN para Configurar Wallet",
-      customLink: "https://www.kgen.quest/profile", // Enlace directo a la sección de perfil/wallet
+      customLink: "https://www.kgen.quest/profile",
       badge: "Crucial / Pagos"
     },
     {
