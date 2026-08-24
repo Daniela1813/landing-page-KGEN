@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { REFERRAL_CONFIG } from '../config/referralConfig';
-import { ExternalLink, Copy, Check, Play, Youtube, ArrowRight, ArrowLeft, Key, CheckCircle2, AlertTriangle, XCircle } from 'lucide-react';
+import { ExternalLink, Copy, Check, Play, Youtube, ArrowRight, ArrowLeft, Key, CheckCircle2, AlertTriangle, XCircle, ArrowDown } from 'lucide-react';
 
 export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
   const [copiedReferral, setCopiedReferral] = useState(false);
@@ -81,65 +81,6 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
         )}
       </div>
 
-      {/* SECCIÓN INTERACTIVA DE COMPATIBILIDAD SOLO PARA EL PASO 1 */}
-      {step.number === 1 && (
-        <div className="mb-8 py-2">
-          <h3 className="text-xs uppercase font-extrabold tracking-wider text-[#7cfc00] flex items-center gap-2 mb-3 font-kgen-title">
-            <CheckCircle2 className="w-4 h-4 text-[#7cfc00]" />
-            ¿Tienes uno de estos dispositivos compatibles?
-          </h3>
-
-          {/* Opciones de Selección SÍ / NO */}
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <button
-              onClick={() => setHasCompatibleDevice('yes')}
-              className={`kgen-btn-primary py-3.5 px-4 text-xs sm:text-sm flex items-center justify-center gap-2 ${
-                hasCompatibleDevice === 'yes' ? 'ring-4 ring-[#7cfc00]/50 shadow-[0_0_20px_rgba(124,252,0,0.5)]' : 'opacity-80'
-              }`}
-            >
-              <CheckCircle2 className="w-4 h-4 text-black" />
-              <span>SÍ, TENGO UNO</span>
-            </button>
-
-            <button
-              onClick={() => setHasCompatibleDevice('no')}
-              className={`kgen-btn-secondary py-3.5 px-4 text-xs sm:text-sm flex items-center justify-center gap-2 ${
-                hasCompatibleDevice === 'no' ? 'border-red-500 text-red-400' : ''
-              }`}
-            >
-              <XCircle className="w-4 h-4 text-red-400" />
-              <span>NO TENGO NINGUNO</span>
-            </button>
-          </div>
-
-          {/* Mensaje si selecciona SÍ */}
-          {hasCompatibleDevice === 'yes' && (
-            <div className="p-4 rounded-xl bg-[#7cfc00]/10 border border-[#7cfc00]/30 flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-[#7cfc00] shrink-0" />
-              <p className="text-xs sm:text-sm text-[#7cfc00] font-bold font-kgen-title">
-                ¡Perfecto! Tu dispositivo es compatible. Puedes hacer clic en SIGUIENTE abajo para continuar.
-              </p>
-            </div>
-          )}
-
-          {/* Mensaje de Bloqueo '¡Ups!' si selecciona NO */}
-          {hasCompatibleDevice === 'no' && (
-            <div className="p-4 sm:p-5 rounded-xl bg-red-950/40 border border-red-500/50 space-y-2">
-              <div className="flex items-center gap-2 text-red-400 font-extrabold text-sm uppercase tracking-wider font-kgen-title">
-                <AlertTriangle className="w-5 h-5 text-red-400" />
-                <span>¡Ups! No disponible para otros dispositivos</span>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-kgen-mono">
-                La aplicación de grabación Minute solo funciona en <strong>iPhone 12 o superior</strong>, <strong>Samsung Galaxy S21 o superior</strong>, y <strong>Google Pixel 6 o superior</strong>.
-              </p>
-              <p className="text-xs text-red-300 font-bold font-kgen-title">
-                ⛔ No podrás continuar con los siguientes pasos sin uno de estos teléfonos compatibles.
-              </p>
-            </div>
-          )}
-        </div>
-      )}
-
       {/* CÓDIGO DE MINUTE EN EL PASO 3 */}
       {step.showMinuteCode && (
         <div className="mb-6 py-2">
@@ -177,11 +118,11 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
         </div>
       )}
 
-      {/* 3. INSTRUCCIONES ABAJO DEL VIDEO */}
-      <div className="mb-8 space-y-3">
+      {/* 3. LISTA DE DISPOSITIVOS / INSTRUCCIONES ABAJO DEL VIDEO */}
+      <div className="mb-6 space-y-3">
         <h3 className="text-xs uppercase font-extrabold tracking-wider text-slate-400 flex items-center gap-2 mb-3 font-kgen-title">
           <CheckCircle2 className="w-4 h-4 text-[#7cfc00]" />
-          Pasos a seguir:
+          Dispositivos admitidos:
         </h3>
 
         {step.instructions.map((inst, idx) => (
@@ -196,7 +137,82 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
         ))}
       </div>
 
-      {/* 4. BOTÓN DE REGISTRO / REFERIDO SOLO A PARTIR DEL PASO 2 (SE ELIMINA DEL PASO 1) */}
+      {/* 4. PREGUNTA Y BOTONES DE CONFIRMACIÓN SÍ / NO (DESPUÉS DE LA LISTA DE DISPOSITIVOS) */}
+      {step.number === 1 && (
+        <div className="mb-8 py-4 border-t border-slate-900">
+          
+          {/* Pregunta en tamaño más grande */}
+          <div className="mb-4">
+            <h3 className="text-base sm:text-lg font-black uppercase text-[#7cfc00] tracking-wide font-kgen-title flex items-center gap-2">
+              <span className="w-2.5 h-2.5 bg-[#7cfc00] inline-block animate-pulse" />
+              ¿Tienes alguno de estos teléfonos admitidos?
+            </h3>
+            <p className="text-xs text-slate-400 mt-1 font-kgen-mono flex items-center gap-1">
+              <ArrowDown className="w-3.5 h-3.5 text-[#7cfc00] animate-bounce" />
+              Selecciona una opción para habilitar el botón SIGUIENTE:
+            </p>
+          </div>
+
+          {/* Opciones de Selección SÍ / NO (Neutrales por defecto) */}
+          <div className="grid grid-cols-2 gap-4 mb-4">
+            <button
+              onClick={() => setHasCompatibleDevice('yes')}
+              className={`py-4 px-4 text-xs sm:text-sm font-extrabold uppercase font-kgen-title flex items-center justify-center gap-2 transition-all ${
+                hasCompatibleDevice === 'yes'
+                  ? 'kgen-btn-primary shadow-[0_0_20px_rgba(124,252,0,0.6)] scale-[1.02]'
+                  : 'kgen-btn-secondary text-slate-300 hover:text-white'
+              }`}
+            >
+              <CheckCircle2 className={`w-4 h-4 ${hasCompatibleDevice === 'yes' ? 'text-black' : 'text-slate-500'}`} />
+              <span>SÍ, TENGO UNO</span>
+            </button>
+
+            <button
+              onClick={() => setHasCompatibleDevice('no')}
+              className={`py-4 px-4 text-xs sm:text-sm font-extrabold uppercase font-kgen-title flex items-center justify-center gap-2 transition-all ${
+                hasCompatibleDevice === 'no'
+                  ? 'bg-red-600 text-white border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.5)] kgen-btn-shape'
+                  : 'kgen-btn-secondary text-slate-300 hover:text-red-400'
+              }`}
+            >
+              <XCircle className={`w-4 h-4 ${hasCompatibleDevice === 'no' ? 'text-white' : 'text-slate-500'}`} />
+              <span>NO TENGO NINGUNO</span>
+            </button>
+          </div>
+
+          {/* Indicativo claro si selecciona SÍ */}
+          {hasCompatibleDevice === 'yes' && (
+            <div className="p-4 rounded-xl bg-[#7cfc00]/10 border border-[#7cfc00]/30 space-y-1">
+              <div className="flex items-center gap-2 text-[#7cfc00] font-bold text-xs sm:text-sm font-kgen-title uppercase">
+                <CheckCircle2 className="w-4 h-4 text-[#7cfc00]" />
+                <span>¡Opción Seleccionada! Dispositivo Compatible Verificado</span>
+              </div>
+              <p className="text-xs text-slate-300 font-kgen-mono flex items-center gap-1.5">
+                <ArrowDown className="w-3.5 h-3.5 text-[#7cfc00] animate-bounce" />
+                Ahora haz clic en el botón verde <strong>SIGUIENTE</strong> abajo para continuar.
+              </p>
+            </div>
+          )}
+
+          {/* Mensaje de Bloqueo '¡Ups!' si selecciona NO */}
+          {hasCompatibleDevice === 'no' && (
+            <div className="p-4 sm:p-5 rounded-xl bg-red-950/50 border border-red-500/50 space-y-2">
+              <div className="flex items-center gap-2 text-red-400 font-extrabold text-sm uppercase tracking-wider font-kgen-title">
+                <AlertTriangle className="w-5 h-5 text-red-400" />
+                <span>¡Ups! No disponible para otros dispositivos</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-kgen-mono">
+                La aplicación de grabación Minute solo funciona en <strong>iPhone 12 o superior</strong>, <strong>Samsung Galaxy S21 o superior</strong>, y <strong>Google Pixel 6 o superior</strong>.
+              </p>
+              <p className="text-xs text-red-300 font-bold font-kgen-title">
+                ⛔ No podrás continuar con los siguientes pasos sin uno de estos teléfonos compatibles.
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 5. BOTÓN DE REGISTRO / REFERIDO SOLO A PARTIR DEL PASO 2 */}
       {step.number > 1 && (
         <div className="space-y-3 mb-8">
           <a
@@ -229,7 +245,7 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
         </div>
       )}
 
-      {/* 5. NAVEGACIÓN ENTRE PASOS */}
+      {/* 6. NAVEGACIÓN ENTRE PASOS */}
       <div className="flex items-center justify-between gap-4 pt-4 border-t border-slate-900 mt-auto">
         <button
           onClick={onPrev}
@@ -242,16 +258,17 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
           <span>ANTERIOR</span>
         </button>
 
+        {/* El botón siguiente se destaca e indica al usuario hacer clic */}
         <button
           onClick={onNext}
           disabled={step.number === 1 && hasCompatibleDevice !== 'yes'}
-          className={`kgen-btn-primary px-8 py-3 text-xs sm:text-sm flex items-center gap-2 ${
+          className={`px-8 py-3 text-xs sm:text-sm flex items-center gap-2 transition-all ${
             step.number === 1 && hasCompatibleDevice !== 'yes'
-              ? 'opacity-40 cursor-not-allowed bg-slate-800 text-slate-500'
-              : ''
+              ? 'opacity-30 cursor-not-allowed bg-slate-900 text-slate-600 border border-slate-800 rounded-xl'
+              : 'kgen-btn-primary animate-pulse'
           }`}
         >
-          <ArrowRight className={`w-4 h-4 ${step.number === 1 && hasCompatibleDevice !== 'yes' ? 'text-slate-500' : 'text-black'}`} />
+          <ArrowRight className={`w-4 h-4 ${step.number === 1 && hasCompatibleDevice !== 'yes' ? 'text-slate-600' : 'text-black'}`} />
           <span>{isLast ? 'FINALIZAR' : 'SIGUIENTE'}</span>
         </button>
       </div>
