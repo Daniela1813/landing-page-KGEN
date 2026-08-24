@@ -41,15 +41,15 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans pb-24 flex flex-col">
+    <div className="min-h-screen bg-transparent text-slate-100 font-sans pb-24 flex flex-col">
       
-      {/* 1. Minimal Stepper Header */}
+      {/* 1. Stepper de progreso superior */}
       <Stepper 
         currentStep={isFinished ? totalSteps + 1 : currentStep} 
         onSelectStep={handleSelectStep} 
       />
 
-      {/* 2. Step View (Video Top + Instructions Bottom) or Completion */}
+      {/* 2. Vista del Paso Actual o Pantalla Final */}
       {!isFinished ? (
         <StepView
           key={currentStep}
@@ -63,7 +63,7 @@ export function App() {
         <CompletionScreen onRestart={handleRestart} />
       )}
 
-      {/* 3. Floating Persistent Referral Bar */}
+      {/* 3. Barra flotante inferior de referido */}
       <FloatingReferralCTA />
 
     </div>

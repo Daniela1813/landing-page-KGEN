@@ -12,7 +12,7 @@ export const FloatingReferralCTA = () => {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#08090b]/95 backdrop-blur-md py-3 px-4 border-t border-slate-900">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#060709]/95 backdrop-blur-md py-3 px-4 border-t border-slate-900">
       <div className="max-w-2xl mx-auto flex items-center justify-between gap-3">
         
         <button
