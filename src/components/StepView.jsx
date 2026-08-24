@@ -25,7 +25,7 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
   return (
     <div className="w-full max-w-3xl mx-auto px-4 py-6 flex flex-col flex-1 font-kgen-mono">
       
-      {/* 1. TÍTULO Y DESCRIPCIÓN CON TIPOGRAFÍA OFICIAL DE KGEN */}
+      {/* 1. TÍTULO Y DESCRIPCIÓN EN LA PARTE SUPERIOR */}
       <div className="mb-6">
         <div className="flex items-center gap-2 mb-2">
           <span className="w-3 h-3 bg-[#7cfc00] inline-block shrink-0" />
@@ -42,7 +42,7 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
         </p>
       </div>
 
-      {/* 2. VIDEO DE YOUTUBE */}
+      {/* 2. VIDEO DE YOUTUBE EN EL MEDIO */}
       <div className="rounded-2xl overflow-hidden mb-6 relative">
         {!isPlaying ? (
           <div 
@@ -117,7 +117,7 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
             <div className="p-4 rounded-xl bg-[#7cfc00]/10 border border-[#7cfc00]/30 flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-[#7cfc00] shrink-0" />
               <p className="text-xs sm:text-sm text-[#7cfc00] font-bold font-kgen-title">
-                ¡Perfecto! Tu dispositivo es compatible. Puedes continuar con el siguiente paso.
+                ¡Perfecto! Tu dispositivo es compatible. Puedes hacer clic en SIGUIENTE abajo para continuar.
               </p>
             </div>
           )}
@@ -196,8 +196,8 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
         ))}
       </div>
 
-      {/* 4. BOTÓN DE REGISTRO / REFERIDO SOLO SI NO ESTÁ BLOQUEADO */}
-      {!(step.number === 1 && hasCompatibleDevice === 'no') && (
+      {/* 4. BOTÓN DE REGISTRO / REFERIDO SOLO A PARTIR DEL PASO 2 (SE ELIMINA DEL PASO 1) */}
+      {step.number > 1 && (
         <div className="space-y-3 mb-8">
           <a
             href={REFERRAL_CONFIG.referralLink}
@@ -206,7 +206,7 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
             className="kgen-btn-primary w-full flex items-center justify-center gap-2 py-4 px-6 text-sm sm:text-base shadow-lg"
           >
             <ArrowRight className="w-5 h-5 text-black" />
-            <span className="uppercase tracking-wider font-kgen-title">REGISTRARME EN KGEN</span>
+            <span className="uppercase tracking-wider font-kgen-title">{step.ctaText}</span>
             <ExternalLink className="w-4 h-4 text-black opacity-80" />
           </a>
 
@@ -229,7 +229,7 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
         </div>
       )}
 
-      {/* 5. NAVEGACIÓN ENTRE PASOS (SI RESPONDE 'NO' EN PASO 1, SE BLOQUEA EL BOTÓN SIGUIENTE) */}
+      {/* 5. NAVEGACIÓN ENTRE PASOS */}
       <div className="flex items-center justify-between gap-4 pt-4 border-t border-slate-900 mt-auto">
         <button
           onClick={onPrev}
@@ -242,7 +242,6 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
           <span>ANTERIOR</span>
         </button>
 
-        {/* El botón siguiente se deshabilita si es Paso 1 y responde 'NO' o no ha seleccionado 'SÍ' */}
         <button
           onClick={onNext}
           disabled={step.number === 1 && hasCompatibleDevice !== 'yes'}
