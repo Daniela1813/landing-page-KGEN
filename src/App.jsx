@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { REFERRAL_CONFIG } from './config/referralConfig';
+import { BrandHeader } from './components/BrandHeader';
 import { Stepper } from './components/Stepper';
 import { StepView } from './components/StepView';
 import { CompletionScreen } from './components/CompletionScreen';
@@ -43,6 +44,9 @@ export function App() {
   return (
     <div className="min-h-screen bg-transparent text-slate-100 font-sans pb-24 flex flex-col">
       
+      {/* 0. Brand header - Daniela Task */}
+      <BrandHeader />
+
       {/* 1. Stepper de progreso superior */}
       <Stepper 
         currentStep={isFinished ? totalSteps + 1 : currentStep} 
