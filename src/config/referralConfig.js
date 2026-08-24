@@ -96,9 +96,10 @@ export const REFERRAL_CONFIG = {
         "d) Selecciona la criptomoneda: USDT.",
         "e) Selecciona la red: Polygon (POL).",
         "f) Copia tu dirección de Wallet (es una combinación única de números y letras).",
-        "g) Entra en KGEN, ve a tu Perfil, busca la opción 'Billetera Digital (Polygon)', pega tu wallet y guarda los cambios."
+        "g) Entra en KGEN (Perfil), busca la opción del formulario 'Billetera Digital (Polygon)', pega tu wallet y guarda los cambios."
       ],
       ctaText: "Ir a KGEN para Configurar Wallet",
+      customLink: "https://www.kgen.quest/profile", // Enlace directo a la sección de perfil/wallet
       badge: "Crucial / Pagos"
     },
     {

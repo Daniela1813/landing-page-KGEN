@@ -10,6 +10,9 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
   // Estado para la pregunta interactiva de dispositivos en el Paso 1 ('yes' | 'no' | null)
   const [hasCompatibleDevice, setHasCompatibleDevice] = useState(null);
 
+  // Usa el enlace personalizado del paso si existe, o el enlace de referido principal
+  const targetLink = step.customLink || REFERRAL_CONFIG.referralLink;
+
   const handleCopyReferralCode = () => {
     navigator.clipboard.writeText(REFERRAL_CONFIG.referralCode);
     setCopiedReferral(true);
@@ -137,11 +140,9 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
         ))}
       </div>
 
-      {/* 4. PREGUNTA Y BOTONES DE CONFIRMACIÓN SÍ / NO (AJUSTADO PARA MÓVILES) */}
+      {/* 4. PREGUNTA Y BOTONES DE CONFIRMACIÓN SÍ / NO PARA EL PASO 1 */}
       {step.number === 1 && (
         <div className="mb-8 py-4 border-t border-slate-900">
-          
-          {/* Pregunta responsiva */}
           <div className="mb-4">
             <h3 className="text-sm sm:text-lg font-black uppercase text-[#7cfc00] tracking-wide font-kgen-title flex items-start sm:items-center gap-2 leading-tight">
               <span className="w-2.5 h-2.5 bg-[#7cfc00] inline-block shrink-0 mt-1 sm:mt-0 animate-pulse" />
@@ -153,7 +154,6 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
             </p>
           </div>
 
-          {/* Opciones SÍ / NO responsivas */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
             <button
               onClick={() => setHasCompatibleDevice('yes')}
@@ -180,7 +180,6 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
             </button>
           </div>
 
-          {/* Indicativo formateado perfectamente para móviles (sin saltos raros) */}
           {hasCompatibleDevice === 'yes' && (
             <div className="p-3.5 sm:p-4 rounded-xl bg-[#7cfc00]/10 border border-[#7cfc00]/30 space-y-1.5">
               <div className="flex items-start gap-2 text-[#7cfc00] font-bold text-xs sm:text-sm font-kgen-title uppercase leading-tight">
@@ -193,7 +192,6 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
             </div>
           )}
 
-          {/* Mensaje de Bloqueo '¡Ups!' */}
           {hasCompatibleDevice === 'no' && (
             <div className="p-3.5 sm:p-5 rounded-xl bg-red-950/50 border border-red-500/50 space-y-2">
               <div className="flex items-start gap-2 text-red-400 font-extrabold text-xs sm:text-sm uppercase tracking-wider font-kgen-title leading-tight">
@@ -211,11 +209,11 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
         </div>
       )}
 
-      {/* 5. BOTÓN DE REGISTRO / REFERIDO SOLO A PARTIR DEL PASO 2 */}
+      {/* 5. BOTÓN DE REGISTRO / ACCIÓN DIRECTA (USA EL ENLACE CORRESPONDIENTE AL PASO) */}
       {step.number > 1 && (
         <div className="space-y-3 mb-8">
           <a
-            href={REFERRAL_CONFIG.referralLink}
+            href={targetLink}
             target="_blank"
             rel="noopener noreferrer"
             className="kgen-btn-primary w-full flex items-center justify-center gap-2 py-3.5 sm:py-4 px-4 text-xs sm:text-base shadow-lg"
@@ -244,7 +242,7 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
         </div>
       )}
 
-      {/* 6. NAVEGACIÓN ENTRE PASOS RESPONSIVA */}
+      {/* 6. NAVEGACIÓN ENTRE PASOS */}
       <div className="flex items-center justify-between gap-3 pt-4 border-t border-slate-900 mt-auto">
         <button
           onClick={onPrev}
