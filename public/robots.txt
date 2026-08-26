@@ -1,0 +1,11 @@
+# Robots.txt para danielatask.com
+# Permite a todos los motores de búsqueda indexar el sitio completo
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://danielatask.com/sitemap.xml
+
+# Bloquear carpetas innecesarias
+Disallow: /assets/
