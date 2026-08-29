@@ -71,7 +71,7 @@ export const REFERRAL_CONFIG = {
       id: "vincular-minute",
       title: "4. Vincular Minute con KGEN",
       subtitle: "Conecta tu cuenta recién creada de Minute dentro de la plataforma KGEN.",
-      youtubeId: null, // Video en proceso
+      youtubeId: "HnPEoX6FBt4", // Video oficial Paso 4
       videoTitle: "Tutorial Paso 4: Vincular el correo de Minute con la tarea de KGEN",
       instructions: [
         "Copia el correo electrónico que utilizaste al registrarte en Minute.",
@@ -106,10 +106,10 @@ export const REFERRAL_CONFIG = {
       number: 6,
       title: "6. Crea tu Soporte Casero o Cómpralo en KGEN",
       subtitle: "Prepara el soporte para tu teléfono para poder realizar las grabaciones correctamente.",
-      youtubeId: null, // Video en proceso
-      videoTitle: "Tutorial Paso 6: Opciones de soporte casero o compra directa en KGEN",
+      youtubeId: "g6hugiLrs0k", // Video oficial Paso 6 (Soporte Casero)
+      videoTitle: "Tutorial Paso 6: Cómo fabricar tu propio soporte casero para celular",
       instructions: [
-        "Mira la demostración para aprender a fabricar tu propio soporte casero de manera económica.",
+        "Mira el video demostrativo para aprender a fabricar tu propio soporte de cabeza casero de manera fácil y económica.",
         "O si lo prefieres, puedes adquirir el soporte oficial directamente dentro de la tienda de KGEN.",
         "Asegúrate de que tu teléfono quede estable y firme a la altura recomendada para las grabaciones."
       ],
@@ -120,8 +120,8 @@ export const REFERRAL_CONFIG = {
       number: 7,
       title: "7. ¡Todo Listo! Únete a la Comunidad",
       subtitle: "Has completado la configuración inicial. Ahora es momento de ingresar al grupo oficial.",
-      youtubeId: null, // Video en proceso
-      videoTitle: "Tutorial Paso 7: Bienvenida a la comunidad y guía de tareas disponibles",
+      youtubeId: "m3nUENe6ahc", // Video oficial Paso 7 (Comunidad)
+      videoTitle: "Tutorial Paso 7: Bienvenida a la comunidad KGEN",
       instructions: [
         "¡Felicidades! Todo está configurado correctamente.",
         "Únete a nuestra comunidad oficial en Discord / Telegram.",
