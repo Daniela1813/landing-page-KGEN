@@ -45,44 +45,46 @@ export const StepView = ({ step, isFirst, isLast, onNext, onPrev }) => {
         </p>
       </div>
 
-      {/* 2. VIDEO DE YOUTUBE EN EL MEDIO */}
-      <div className="rounded-2xl overflow-hidden mb-6 relative">
-        {!isPlaying ? (
-          <div 
-            className="relative cursor-pointer aspect-video bg-slate-900 flex flex-col items-center justify-center p-4 group rounded-2xl border border-slate-800"
-            onClick={() => setIsPlaying(true)}
-          >
-            <img
-              src={`https://img.youtube.com/vi/${step.youtubeId}/hqdefault.jpg`}
-              alt={step.videoTitle}
-              className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-300 rounded-2xl"
-              onError={(e) => { e.target.style.display = 'none'; }}
-            />
-            
-            <div className="relative z-10 flex flex-col items-center text-center">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-red-600 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center mb-2 sm:mb-3 shadow-xl">
-                <Play className="w-7 h-7 sm:w-8 sm:h-8 text-white fill-white ml-1" />
+      {/* 2. VIDEO DE YOUTUBE EN EL MEDIO (SI TIENE VIDEO CONFIGURADO) */}
+      {step.youtubeId && (
+        <div className="rounded-2xl overflow-hidden mb-6 relative">
+          {!isPlaying ? (
+            <div 
+              className="relative cursor-pointer aspect-video bg-slate-900 flex flex-col items-center justify-center p-4 group rounded-2xl border border-slate-800"
+              onClick={() => setIsPlaying(true)}
+            >
+              <img
+                src={`https://img.youtube.com/vi/${step.youtubeId}/hqdefault.jpg`}
+                alt={step.videoTitle}
+                className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-300 rounded-2xl"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+              
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-red-600 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center mb-2 sm:mb-3 shadow-xl">
+                  <Play className="w-7 h-7 sm:w-8 sm:h-8 text-white fill-white ml-1" />
+                </div>
+                <div className="flex items-center gap-1.5 text-white text-[11px] sm:text-xs font-bold font-kgen-title uppercase">
+                  <Youtube className="w-4 h-4 text-red-500" />
+                  <span>Ver Tutorial en Video</span>
+                </div>
+                <p className="text-[11px] sm:text-xs text-slate-300 mt-1 max-w-sm font-kgen-mono line-clamp-1">
+                  {step.videoTitle}
+                </p>
               </div>
-              <div className="flex items-center gap-1.5 text-white text-[11px] sm:text-xs font-bold font-kgen-title uppercase">
-                <Youtube className="w-4 h-4 text-red-500" />
-                <span>Ver Tutorial en Video</span>
-              </div>
-              <p className="text-[11px] sm:text-xs text-slate-300 mt-1 max-w-sm font-kgen-mono line-clamp-1">
-                {step.videoTitle}
-              </p>
             </div>
-          </div>
-        ) : (
-          <div className="video-responsive">
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${step.youtubeId}?autoplay=1&rel=0`}
-              title={step.videoTitle}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        )}
-      </div>
+          ) : (
+            <div className="video-responsive">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${step.youtubeId}?autoplay=1&rel=0`}
+                title={step.videoTitle}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          )}
+        </div>
+      )}
 
       {/* CÓDIGO DE MINUTE EN EL PASO 3 */}
       {step.showMinuteCode && (

@@ -24,7 +24,7 @@ export const REFERRAL_CONFIG = {
       id: "dispositivo",
       title: "1. ¿Qué dispositivo tienes?",
       subtitle: "Verifica que tu teléfono sea compatible antes de comenzar el proceso de registro.",
-      youtubeId: "dQw4w9WgXcQ", // Reemplaza con el ID de tu video de YouTube para el Paso 1
+      youtubeId: null, // Video en proceso
       videoTitle: "Cómo saber qué teléfono tienes y la importancia del modelo compatible",
       instructions: [
         "iPhone: Modelo iPhone 12 o superior.",
@@ -40,7 +40,7 @@ export const REFERRAL_CONFIG = {
       id: "registro-kgen",
       title: "2. Registro en KGEN",
       subtitle: "Crea tu cuenta oficial en la plataforma KGEN utilizando nuestro enlace directo.",
-      youtubeId: "dQw4w9WgXcQ", // Reemplaza con el ID de tu video de YouTube para el Paso 2
+      youtubeId: "fu9kz1jjr1E", // Video oficial Paso 2
       videoTitle: "Tutorial Paso 2: Cómo registrarte en KGEN con tu cuenta de Google",
       instructions: [
         "Haz clic en el enlace verde de referido 'Registrarme en KGEN'.",
@@ -55,7 +55,7 @@ export const REFERRAL_CONFIG = {
       id: "descarga-minute",
       title: "3. Descarga la App de Minute",
       subtitle: "Descarga la aplicación oficial de Minute en tu teléfono e ingresa el código de invitación obligatorio.",
-      youtubeId: "dQw4w9WgXcQ", // Reemplaza con el ID de tu video de YouTube para el Paso 3
+      youtubeId: "8eTP4YLSzzE", // Video oficial Paso 3
       videoTitle: "Tutorial Paso 3: Descarga de Minute y uso del código de invitación",
       instructions: [
         "Descarga la aplicación 'Minute' desde la AppStore (iOS) o PlayStore (Android).",
@@ -71,7 +71,7 @@ export const REFERRAL_CONFIG = {
       id: "vincular-minute",
       title: "4. Vincular Minute con KGEN",
       subtitle: "Conecta tu cuenta recién creada de Minute dentro de la plataforma KGEN.",
-      youtubeId: "dQw4w9WgXcQ", // Reemplaza con el ID de tu video de YouTube para el Paso 4
+      youtubeId: "VWti0UHqQac", // Video oficial Paso 4
       videoTitle: "Tutorial Paso 4: Vincular el correo de Minute con la tarea de KGEN",
       instructions: [
         "Copia el correo electrónico que utilizaste al registrarte en Minute.",
@@ -87,7 +87,7 @@ export const REFERRAL_CONFIG = {
       id: "vincular-binance",
       title: "5. Vincular cuenta de Binance con KGEN",
       subtitle: "Configura tu billetera de Binance para recibir tus pagos directos. Los datos deben ser exactos.",
-      youtubeId: "dQw4w9WgXcQ", // Reemplaza con el ID de tu video de YouTube para el Paso 5
+      youtubeId: null, // Video en proceso
       videoTitle: "Tutorial Paso 5: Cómo obtener tu wallet de Polygon (USDT) en Binance y vincularla",
       instructions: [
         "Entra a tu cuenta de Binance (si no tienes una, créala; hay muchos videos en YouTube de cómo hacerlo).",
@@ -106,10 +106,10 @@ export const REFERRAL_CONFIG = {
       number: 6,
       title: "6. Crea tu Soporte Casero o Cómpralo en KGEN",
       subtitle: "Prepara el soporte para tu teléfono para poder realizar las grabaciones correctamente.",
-      youtubeId: "dQw4w9WgXcQ", // Reemplaza con el ID de tu video de YouTube para el Paso 6
+      youtubeId: null, // Video en proceso
       videoTitle: "Tutorial Paso 6: Opciones de soporte casero o compra directa en KGEN",
       instructions: [
-        "Mira el video demostrativo para aprender a fabricar tu propio soporte casero de manera económica.",
+        "Mira la demostración para aprender a fabricar tu propio soporte casero de manera económica.",
         "O si lo prefieres, puedes adquirir el soporte oficial directamente dentro de la tienda de KGEN.",
         "Asegúrate de que tu teléfono quede estable y firme a la altura recomendada para las grabaciones."
       ],
@@ -120,7 +120,7 @@ export const REFERRAL_CONFIG = {
       number: 7,
       title: "7. ¡Todo Listo! Únete a la Comunidad",
       subtitle: "Has completado la configuración inicial. Ahora es momento de ingresar al grupo oficial.",
-      youtubeId: "dQw4w9WgXcQ", // Reemplaza con el ID de tu video de YouTube para el Paso 7
+      youtubeId: null, // Video en proceso
       videoTitle: "Tutorial Paso 7: Bienvenida a la comunidad y guía de tareas disponibles",
       instructions: [
         "¡Felicidades! Todo está configurado correctamente.",
@@ -134,7 +134,7 @@ export const REFERRAL_CONFIG = {
       number: 8,
       title: "8. Preguntas y Respuestas (FAQ)",
       subtitle: "Respuestas a las dudas más comunes sobre los dispositivos, pagos y vinculación.",
-      youtubeId: "dQw4w9WgXcQ", // Reemplaza con el ID de tu video de YouTube para las Preguntas Frecuentes
+      youtubeId: null, // Video en proceso
       videoTitle: "Video Resumen: Preguntas frecuentes y resolución de dudas comunes",
       instructions: [
         "¿Por qué es obligatorio el código 5TBCT4ZC en Minute? Sin este código no se vinculan las tareas con KGEN.",
