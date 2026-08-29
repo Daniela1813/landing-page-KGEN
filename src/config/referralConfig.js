@@ -71,7 +71,7 @@ export const REFERRAL_CONFIG = {
       id: "vincular-minute",
       title: "4. Vincular Minute con KGEN",
       subtitle: "Conecta tu cuenta recién creada de Minute dentro de la plataforma KGEN.",
-      youtubeId: "VWti0UHqQac", // Video oficial Paso 4
+      youtubeId: null, // Video en proceso
       videoTitle: "Tutorial Paso 4: Vincular el correo de Minute con la tarea de KGEN",
       instructions: [
         "Copia el correo electrónico que utilizaste al registrarte en Minute.",
@@ -87,7 +87,7 @@ export const REFERRAL_CONFIG = {
       id: "vincular-binance",
       title: "5. Vincular cuenta de Binance con KGEN",
       subtitle: "Configura tu billetera de Binance para recibir tus pagos directos. Los datos deben ser exactos.",
-      youtubeId: null, // Video en proceso
+      youtubeId: "VWti0UHqQac", // Video oficial Paso 5 (Binance)
       videoTitle: "Tutorial Paso 5: Cómo obtener tu wallet de Polygon (USDT) en Binance y vincularla",
       instructions: [
         "Entra a tu cuenta de Binance (si no tienes una, créala; hay muchos videos en YouTube de cómo hacerlo).",
